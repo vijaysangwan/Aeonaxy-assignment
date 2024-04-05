@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignUpForm() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ function SignUpForm() {
     confirmPassword: "",
     agreeTerms: "",
   });
+  let navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -53,7 +55,7 @@ function SignUpForm() {
     if (formIsValid) {
       // Perform form submission
       console.log("Form submitted:", formData);
-      window.location.href = "/page2";
+      navigate("/page2")
     }
   };
 
